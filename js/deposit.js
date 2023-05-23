@@ -32,14 +32,36 @@
 // })
 
 
+
+
+
+// DEPOSIT
 let depositBtn = document.getElementById('deposit-btn');
+let balanceTotalTag = document.getElementById('balance-total');
+
+let balancetotalValue = parseInt(balanceTotalTag.innerText);
+// console.log(balancetotalValue);
 
 depositBtn.addEventListener('click', function(){
-    let depositeValue = document.getElementById('deposit').value;
-    let depositeTotal = document.getElementById('deposit-total').innerHTML;
+    //taking from input field as string
+    let depositeTag = document.getElementById('deposit'); 
+    let depositeValue = depositeTag.value; 
 
-    let dpAmoubn
-    console.log(depositeTotal);
+    // converting to integer from string
+    depositeValue = parseInt(depositeValue);
+
+    // getting span tag
+    let depositeTotal = document.getElementById('deposit-total');
+
+    // getting inner text of that span tag
+    let currentAmount = parseInt(depositeTotal.innerText);
+
+    // setting updated value into span tag
+    depositeTotal.innerText = depositeValue;
     
+    let sum = depositeValue + balancetotalValue;
+    balanceTotalTag.innerText = sum;
 
+    depositeTag.value = "";
+    console.log(sum);
 });
